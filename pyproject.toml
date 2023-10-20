@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "pearl_control"
+version = "0.0.1"
+description = "Connects a Pearl Mini to MQTT for remote control"
+license = "MIT"
+authors = [
+    "Mark Murnane <mark@hackafe.net>"
+]
+repository = "https://github.com/bitbyt3r/pearl_control"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.7"
+requests = "2.31.0"
+paho-mqtt = "*"
+
+[tool.poetry.scripts]
+pearl_control = 'pearl_control.console:run'
