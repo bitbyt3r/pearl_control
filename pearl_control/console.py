@@ -1,6 +1,7 @@
 import optparse
 import time
 import sys
+import os
 
 from . import messagebus
 from . import pearl_mini
@@ -8,15 +9,15 @@ from . import pearl_mini
 parser = optparse.OptionParser()
 parser.add_option("-b", "--broker", dest="broker", help="Address of the broker to connect to", default="mqtt.magevent.net")
 parser.add_option("-p", "--broker-port", dest="broker_port", help="Port of the broker to connect to", type="int", default=8080)
-parser.add_option("-n", "--name", dest="name", help="Name of this pearl mini", default="test-pearl")
+parser.add_option("-n", "--name", dest="name", help="Name of this pearl mini", default=os.environ.get("NAME", "test-pearl"))
 parser.add_option("-l", "--listen", dest="listen", help="Listen for messages to help debug", action="store_true")
 
-parser.add_option("-U", "--url", dest="url", help="Pearl url", type="str", default="http://10.1.32.233")
-parser.add_option("-u", "--username", dest="username", help="Pearl admin username", type="str", default="admin")
-parser.add_option("-P", "--password", dest="password", help="Pearl admin password", type="str", default="password")
+parser.add_option("-U", "--url", dest="url", help="Pearl url", type="str", default="http://"+os.environ.get("IP", "pearl"))
+parser.add_option("-u", "--username", dest="username", help="Pearl admin username", type="str", default=os.environ.get("USERNAME", "admin"))
+parser.add_option("-P", "--password", dest="password", help="Pearl admin password", type="str", default=os.environ.get("PASSWORD", "password"))
 
-parser.add_option("-C", "--composite-view", dest="composite", help="Name of composite view", default="Default")
-parser.add_option("-w", "--web-view", dest="web", help="Name of web view", default="NextUp_Screen")
+parser.add_option("-C", "--composite-view", dest="composite", help="Name of composite view", default=os.environ.get("COMPOSITE_VIEW", "Default"))
+parser.add_option("-w", "--web-view", dest="web", help="Name of web view", default=os.environ.get("NEXT_UP_VIEW", "NextUp_Screen"))
 
 def run():
     (options, args) = parser.parse_args()

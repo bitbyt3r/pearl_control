@@ -13,4 +13,4 @@ RUN pip install --upgrade pip poetry
 COPY . /app/
 RUN poetry install
 
-CMD ["poetry", "run", "pearl_control", "--url", "http://${IP}", "--username", "${USERNAME}", "--password", "${PASSWORD}", "--name", "${NAME}"]
+CMD ["poetry", "run", "pearl_control"]
