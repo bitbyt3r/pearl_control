@@ -1,13 +1,15 @@
 version: "3"
 services:
-  panels_1:
-    image: ghcr.io/bitbyt3r/pearl_control:main
-    restart: always
-    env_file:
-     - .env
-    environment:
-      - IP=10.113.10.133
-      - NAME=panels_1
+#  panels_1:
+#    image: ghcr.io/bitbyt3r/pearl_control:main
+#    restart: always
+#    env_file:
+#     - .env
+#    environment:
+#      - IP=10.113.10.133
+#      - NAME=panels_1
+#    extra_hosts:
+#    - "mqtt.magevent.net"
   panels_2:
     image: ghcr.io/bitbyt3r/pearl_control:main
     restart: always
@@ -56,22 +58,22 @@ services:
     environment:
       - IP=10.136.10.130
       - NAME=panels_7
-  chipspace:
-    image: ghcr.io/bitbyt3r/pearl_control:main
-    restart: always
-    env_file:
-     - .env
-    environment:
-      - IP=10.184.10.11
-      - NAME=chipspace
-  magfast:
-    image: ghcr.io/bitbyt3r/pearl_control:main
-    restart: always
-    env_file:
-     - .env
-    environment:
-      - IP=10.135.10.12
-      - NAME=magfast
+#  chipspace:
+#    image: ghcr.io/bitbyt3r/pearl_control:main
+#    restart: always
+#    env_file:
+#     - .env
+#    environment:
+#      - IP=10.184.10.11
+#      - NAME=chipspace
+#  magfast:
+#    image: ghcr.io/bitbyt3r/pearl_control:main
+#    restart: always
+#    env_file:
+#     - .env
+#    environment:
+#      - IP=10.135.10.12
+#      - NAME=magfast
 
   watchtower:
     image: containrrr/watchtower
