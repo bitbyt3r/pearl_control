@@ -1,0 +1,81 @@
+version: "3"
+services:
+  panels_1:
+    image: ghcr.io/bitbyt3r/pearl_control:main
+    restart: always
+    env_file:
+     - .env
+    environment:
+      - IP=10.113.10.133
+      - NAME=panels_1
+  panels_2:
+    image: ghcr.io/bitbyt3r/pearl_control:main
+    restart: always
+    env_file:
+     - .env
+    environment:
+      - IP=10.126.10.11
+      - NAME=panels_2
+  panels_3:
+    image: ghcr.io/bitbyt3r/pearl_control:main
+    restart: always
+    env_file:
+     - .env
+    environment:
+      - IP=10.143.10.10
+      - NAME=panels_3
+  panels_4:
+    image: ghcr.io/bitbyt3r/pearl_control:main
+    restart: always
+    env_file:
+     - .env
+    environment:
+      - IP=10.127.10.10
+      - NAME=panels_4
+  panels_5:
+    image: ghcr.io/bitbyt3r/pearl_control:main
+    restart: always
+    env_file:
+     - .env
+    environment:
+      - IP=10.133.10.12
+      - NAME=panels_5
+  panels_6:
+    image: ghcr.io/bitbyt3r/pearl_control:main
+    restart: always
+    env_file:
+     - .env
+    environment:
+      - IP=10.135.10.131
+      - NAME=panels_6
+  panels_7:
+    image: ghcr.io/bitbyt3r/pearl_control:main
+    restart: always
+    env_file:
+     - .env
+    environment:
+      - IP=10.136.10.130
+      - NAME=panels_7
+  chipspace:
+    image: ghcr.io/bitbyt3r/pearl_control:main
+    restart: always
+    env_file:
+     - .env
+    environment:
+      - IP=10.184.10.11
+      - NAME=chipspace
+  magfast:
+    image: ghcr.io/bitbyt3r/pearl_control:main
+    restart: always
+    env_file:
+     - .env
+    environment:
+      - IP=10.135.10.12
+      - NAME=magfast
+
+  watchtower:
+    image: containrrr/watchtower
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+    command: --interval 30
+    restart: always
