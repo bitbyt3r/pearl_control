@@ -9,8 +9,8 @@ ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
 # install dependencies
-RUN pip install --upgrade pip
+RUN pip install --upgrade pip poetry
 COPY . /app/
-RUN pip install .
+RUN poetry install
 
-CMD ["python", "-m", "pearl_control", "--url", "http://${IP}", "--username", "${USERNAME}", "--password", "${PASSWORD}", "--name", "${NAME}"]
+CMD ["poetry", "run", "pearl_control", "--url", "http://${IP}", "--username", "${USERNAME}", "--password", "${PASSWORD}", "--name", "${NAME}"]

@@ -43,5 +43,6 @@ class PearlMini():
 
     def change_layout(self, channel, layout):
         print(f"Changing layout of {channel} to {layout}")
+        return
         r = requests.put(f"{self.url}/api/channels/{channel}/layouts/active", json={"id": layout}, auth=self.auth)
         return r.status_code == 200
